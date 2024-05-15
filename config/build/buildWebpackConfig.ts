@@ -14,7 +14,7 @@ export function buildWebpackConfig(
 		mode: mode,
 		entry: paths.entry,
 		module: {
-			rules: buildLoaders(),
+			rules: buildLoaders(options),
 		},
 		resolve: buildResolves(),
 		plugins: buildPlugins(options),
@@ -23,7 +23,7 @@ export function buildWebpackConfig(
 			path: paths.build,
 			clean: true,
 		},
-		devtool: 'inline-source-map',
-		devServer: buildDevServer(options),
+		devtool: options.isDev ? 'inline-source-map' : undefined,
+		devServer: options.isDev ? buildDevServer(options) : undefined,
 	}
 }
