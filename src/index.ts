@@ -12,5 +12,5 @@ const main = (a: number, b: number): Array<number> => {
 
 	return array
 }
-
+document.body.innerHTML = `<div>KEEEK</div>`
 console.log(main(-3, 3))
